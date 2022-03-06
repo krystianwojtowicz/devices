@@ -66,6 +66,9 @@ const removeTask = (e) => {
    {
    document.querySelector(`span[data-key="${i}"]`).classList.add("visible")
    } 
+     //  else if (span[data-key=`${i}`]).classList.contains(visible){
+  //    document.querySelector(`span[data-key="${i}"]`).classList.remove("visible")
+  //  }
  }
  }
  
