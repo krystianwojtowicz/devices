@@ -62,7 +62,7 @@ const removeTask = (e) => {
  
  const index = e.target.dataset.key;
  for (let i = 0; i < 3; i++) {
-   if (i==index)
+   if (i=index)
    {
    document.querySelector(`span[data-key="${i}"]`).classList.add("visible")
    } 
