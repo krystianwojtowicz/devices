@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+   
+
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="box">
+        <button data-key="1" class="draggable">żarówka</button>
+        <button data-key="2" class="draggable">gniazdo</button>
+        <button data-key="3" class="draggable">czujnik temperatury</button>
+      
+        
+        
+    </div>
+</div>
+<div class="description">
+    <div>
+        <span>typ: elektryczny</span>
+        <span>nazwa: żarówka</span>
+        <span>stan: włączony</span>
+        <span data-key="1" class="dot"></span>
+    </div>
+    <div>
+        <span>typ: elektryczny</span>
+        <span>nazwa: gniazdo</span>
+        <span>stan: włączony</span>
+        <span data-key="2" class="dot"></span>
+    </div>
+    <div>
+        <span>typ: elektroniczny</span>
+        <span>nazwa: czujnik temperatury</span>
+        <span>stan: włączony</span>
+        <span data-key="3" class="dot"></span>
+    </div>
+</div>
+<button class="switch"></button>
+
+Client1
+<button onclick="sendMessage()">Send Msg</button>
+
+<script>
+// Create WebSocket connection.
+const socket = new WebSocket('ws://localhost:3000');
+
+// Connection opened
+socket.addEventListener('open', function (event) {
+    console.log('Connected to WS Server')
+});
+
+// Listen for messages
+socket.addEventListener('message', function (event) {
+    console.log('Message from server ', event.data);
+});
+
+const sendMessage = () => {
+    socket.send('Hello From Client1!');
+}
+</script>
+
+<script src='main.js'></script>
+
+</body>
+
+</html>
